@@ -17,5 +17,5 @@ spring:
 
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.eiletxie.springcloud.entities     # 所有entity所在包
+  mapper-locations: classpath:mapper/*.xml                # 映射mapper底下所有的xml文件
+  type-aliases-package: com.yuwei.springcloud.entities     # 所有entity所在包

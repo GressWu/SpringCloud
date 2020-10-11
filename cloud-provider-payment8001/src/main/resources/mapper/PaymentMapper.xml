@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.yuwei.springcloud.dao.PaymentDao"> <!--映射接口-->
+    <!--id：接口方法名 parameterType：参数类型 useGeneratedKeys：返回记录的Id值 keyProperty：返回的值为Id-->
+    <!-- 自增Id-->
+    <insert id="create" parameterType="Payment" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into payment(serial) values(#{serial});
+    </insert>
+
+    <!--    resultMap:返回结果集名称映射-->
+    <select id="getPaymentById" parameterType="Long" resultMap="BaseResultMap">
+         select * from payment where id = #{id};
+    </select>
+
+    <!-- property：Java实体类字段名 column 数据库字段名-->
+    <resultMap id="BaseResultMap" type="com.yuwei.springcloud.entities.Payment">
+        <id column="id" property="id" jdbcType="BIGINT"></id>
+        <id column="serial" property="serial" jdbcType="VARCHAR"></id>
+    </resultMap>
+</mapper>
